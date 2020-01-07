@@ -1,0 +1,10 @@
+(define (partial-sums stream)
+  (define (helper stream current)
+    (cond
+      ((eq? stream nil) nil)
+      (else (cons-stream (+ current (car stream))
+      (helper (cdr-stream stream) (+ current (car stream)))))
+    )
+  )
+  (helper stream 0)
+)
